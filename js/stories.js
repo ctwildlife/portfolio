@@ -16,7 +16,7 @@ const STORIES = [
   { beat: "Environment", title: "Where do the antelope play? Idaho Fish and Game tracking pronghorn migration patterns",
     image: "thumbnails/pronghorn.jpg", link: "clips/where-do-the-antelope-play.pdf", outlet: "", date: "" },
   { beat: "Environment", title: "Electric scooters keep ending up in the river, and gov’t agencies are doing little to stop it",
-    image: "thumbnails/lime.jpg", link: "clips/scooters.pdf", outlet: "", date: "" },
+    image: "thumbnails/lime.jpg", link: "clips/scooters-in-the-river.pdf", outlet: "", date: "" },
 
   // Government
   { beat: "Government", title: "Spokane County stands to lose thousands over stalled criminal justice reform program",
