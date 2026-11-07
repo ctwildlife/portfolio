@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stories | Colin Tiernan</title>
+  <meta name="description" content="Selected reporting by Colin Tiernan on agriculture, the environment, government, energy, and features.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+</head>
+<body>
+  <header class="site-header">
+    <a href="index.html">
+      <span class="site-name">Colin Tiernan</span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="stories.html" aria-current="page">Stories</a>
+      <a href="photos.html">Photos</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
+
+<main>
+  <div id="stories"></div>
+  <p class="more"><a href="more.html">More stories</a></p>
+</main>
+
+  <script src="js/stories.js"></script>
+  <script>
+    const root = document.getElementById("stories");
+    const beats = [...new Set(STORIES.map(s => s.beat))];
+
+    for (const beat of beats) {
+      const section = document.createElement("section");
+      section.className = "beat";
+      section.setAttribute("aria-labelledby", "beat-" + beat.toLowerCase());
+
+      const h2 = document.createElement("h2");
+      h2.id = "beat-" + beat.toLowerCase();
+      h2.textContent = beat;
+
+      const list = document.createElement("ul");
+      list.className = "grid";
+
+      for (const s of STORIES.filter(s => s.beat === beat)) {
+        const li = document.createElement("li");
+        const a = document.createElement("a");
+        a.className = "card";
+        a.href = s.link;
+        a.target = "_blank";
+        a.rel = "noopener";
+
+        const img = document.createElement("img");
+        img.src = s.image;
+        img.alt = "";
+        img.loading = "lazy";
+
+        const h3 = document.createElement("h3");
+        h3.textContent = s.title;
+
+        a.append(img, h3);
+
+        const meta = [s.outlet, s.date].filter(Boolean).join(", ");
+        if (meta) {
+          const p = document.createElement("span");
+          p.className = "meta";
+          p.textContent = meta;
+          a.append(p);
+        }
+
+        li.append(a);
+        list.append(li);
+      }
+
+      section.append(h2, list);
+      root.append(section);
+    }
+  </script>
+</body>
+</html>
