@@ -238,3 +238,9 @@ body.about-page .site-header { background: var(--bg); }
   .about { grid-template-columns: minmax(0, 1fr); gap: 0; }
   .about-divider { height: 1px; margin: 2.5rem 0; }
 }
+
+@media (max-width: 600px) {
+  .tiles {
+    padding-top: 20px;
+  }
+}

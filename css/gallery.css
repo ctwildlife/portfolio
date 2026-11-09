@@ -129,7 +129,10 @@ body.pjg-page { background: #000; }
   transition: opacity 0.2s ease;
 }
 
-.pjg-frame:hover .pjg-caption,
+@media (hover: hover) {
+  .pjg-frame:hover .pjg-caption { opacity: 1; }
+}
+
 .pjg-frame.show-caption .pjg-caption { opacity: 1; }
 
 @media (max-width: 700px) {
@@ -169,4 +172,17 @@ body.pjg-page .pjg-viewer { flex: 1; min-height: 0; }
 body.pjg-page .pjg-frame img {
   max-height: calc(100vh - var(--header-h) - 24px);
   max-height: calc(100dvh - var(--header-h) - 24px);
+}
+
+@media (max-width: 700px) {
+  .pjg-caption {
+    padding: 8px 12px;
+    font-size: 13px;
+    line-height: 1.35;
+  }
+
+  .pjg-headline {
+    font-size: 1.05em;
+    margin-bottom: 4px;
+  }
 }
